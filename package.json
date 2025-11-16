@@ -3,16 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  
-  "install-all": "npm install --prefix backend && npm install --prefix frontend",
-  
-  "start:backend": "npm run dev --prefix backend", 
-  "start:frontend": "npm run dev --prefix frontend",
-  
-  "start:dev": "npm run start:backend & npm run start:frontend" 
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install --prefix backend && npm install --prefix frontend/vite-project && npm run build --prefix frontend/vite-project",
+    "start:backend": "npm run dev --prefix backend",
+    "start:frontend": "npm run dev --prefix frontend/vite-project",
+    "start:dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cloudKranthi/inotebook.git"
@@ -24,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/cloudKranthi/inotebook/issues"
   },
-  "homepage": "https://github.com/cloudKranthi/inotebook#readme"
+  "homepage": "https://github.com/cloudKranthi/inotebook#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }
